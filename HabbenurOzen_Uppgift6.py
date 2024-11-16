@@ -42,16 +42,16 @@ def beräkna_genomsnittsålder(personer):
                (genomsnitt_ålder_män, genomsnitt_ålder_kvinnor)
     """
     # Progrsmmet filtrerar ut åldrarna för alla män i listan
-  män = [person['ålder'] for person in personer if person ['kön']== 'M']
- 
+    män = [person['ålder'] for person in personer if person['kön'] == 'M']
+    kvinnor = [person['ålder'] for person in personer if person['kön'] == 'K']
+
      # Programmet filtrerar ut åldrarna för alla kvinnor i listan
-  kvinnor = [person['ålder'] for person in personer if person ['kön'] == 'K']
-
+ 
    # Programmet beräknar genomsnittsåldern för män och kvinnor, men endast om listan inte är tom
-  genomsnitt_ålder_män = sum(män) / len(män) if män else 0
-  genomsnitt_ålder_kvinnor = sum(kvinnor) / len(kvinnor) if kvinnor else 0
+    genomsnitt_ålder_män = sum(män) / len(män) if män else 0
+    genomsnitt_ålder_kvinnor = sum(kvinnor) / len(kvinnor) if kvinnor else 0
 
-  return genomsnitt_ålder_män, genomsnitt_ålder_kvinnor
+    return genomsnitt_ålder_män, genomsnitt_ålder_kvinnor
 
 def main():
    """
@@ -59,24 +59,24 @@ def main():
     beräknar genomsnittsålder för män respektive kvinnor och presenterar resultatet.
     """
     # Programmet samlar in ålder och kön för varje person
-  personer = samla_information()
+personer = samla_information()
 
     # Programmet beräknar genomsnittsåldern för män och kvinnor
-  genomsnitt_ålder_kvinnor, genomsnitt_ålder_män = beräkna_genomsnittsålder(personer)
+genomsnitt_ålder_kvinnor, genomsnitt_ålder_män = beräkna_genomsnittsålder(personer)
 
    # Programmet presenterar resultaten för användaren
-  print("\nResultat:")
+print("\nResultat:")
 
   # Om det finns åldersdata för kvinnor, visar programmet genomsnittsåldern för kvinnor annars skriver ut Ingen data osv. 
-  if genomsnitt_ålder_kvinnor > 0 :
+if genomsnitt_ålder_kvinnor > 0 :
     print(f"Genomsnittålder för kvinnor är : {genomsnitt_ålder_kvinnor: .2f} år.")
-  else:
+else:
     print("Ingen data för kvinnor")
 
    # Om det finns åldersdata för män, visar programmet genomsnittsåldern för män annars skriver ut Ingen data osv.
-  if genomsnitt_ålder_män > 0 :
+if genomsnitt_ålder_män > 0 :
     print(f"Genomsnittålder för män är : {genomsnitt_ålder_män: .2f} år.")
-  else:
+else:
     print("Ingen data för män")
 
 # Kör programmet
