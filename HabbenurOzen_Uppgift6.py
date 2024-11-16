@@ -43,9 +43,9 @@ def beräkna_genomsnittsålder(personer):
     """
     # Progrsmmet filtrerar ut åldrarna för alla män i listan
     män = [person['ålder'] for person in personer if person['kön'] == 'M']
-    kvinnor = [person['ålder'] for person in personer if person['kön'] == 'K']
 
-     # Programmet filtrerar ut åldrarna för alla kvinnor i listan
+    # Programmet filtrerar ut åldrarna för alla kvinnor i listan
+    kvinnor = [person['ålder'] for person in personer if person['kön'] == 'K']
  
    # Programmet beräknar genomsnittsåldern för män och kvinnor, men endast om listan inte är tom
     genomsnitt_ålder_män = sum(män) / len(män) if män else 0
